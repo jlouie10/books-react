@@ -34,13 +34,6 @@ class Search extends Component {
             .catch(err => console.log(err));
     };
 
-    // Save book to database
-    saveBook = book => {
-        API.saveBook(book)
-            .then(res => { console.log(`"${res.data.title}" saved.`) })
-            .catch(err => console.log(err));
-    };
-
     // Update query parameter on input change
     handleInputChange = event => {
         this.setState({ query: event.target.value });
@@ -55,10 +48,12 @@ class Search extends Component {
     };
 
     // Save book on button click
-    handleButtonClick = event => {
+    handleButtonClick = (volumeId, order) => {
         this.state.books.forEach(book => {
-            if (book.volumeId === event.target.value) {
-                this.saveBook(book);
+            if (book.volumeId === volumeId) {
+                API.saveBook(book)
+                    .then(res => { console.log(`"${res.data.title}" saved.`) })
+                    .catch(err => console.log(err));
             }
         });
     };

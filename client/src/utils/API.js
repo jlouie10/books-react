@@ -15,7 +15,6 @@ export default {
     },
     // Delete book from database
     deleteBook: function (_id) {
-        console.log(_id)
         return axios.delete(`/api/v1/books/${_id}`);
     }
 };
