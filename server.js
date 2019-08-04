@@ -10,6 +10,9 @@ const mongoose = require('mongoose');
 // App configuration
 const books = require('./config');
 
+// Require all routes
+const routes = require('./app');
+
 // Initialize Express
 const app = express();
 
@@ -29,6 +32,9 @@ mongoose.connect(books.config.mongodb.uri, {
     useFindAndModify: false,
     useNewUrlParser: true
 });
+
+// Routes
+app.use(routes);
 
 // Start server
 app.listen(PORT);
