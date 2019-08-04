@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Main, Search, Nav } from './components';
+import { Bookshelf, Main, Nav, Search } from './components';
 import './App.css';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Main>
         <Switch>
           <Route exact path="/" component={Search} />
+          <Route exact path="/bookshelf" component={Bookshelf} />
         </Switch>
       </Main>
     </Router>
