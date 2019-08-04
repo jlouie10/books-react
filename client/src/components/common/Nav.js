@@ -7,6 +7,7 @@ function Nav() {
             <a href="/">Books</a>
             <ul>
                 <li><a href="/">Search</a></li>
+                <li><a href="/bookshelf">Bookshelf</a></li>
             </ul>
         </nav>
     );
