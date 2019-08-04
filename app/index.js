@@ -1,6 +1,7 @@
 'use strict';
 
 // Dependencies
+const path = require('path');
 const router = require('express').Router(); // Create a Router instance
 
 // Require versions
