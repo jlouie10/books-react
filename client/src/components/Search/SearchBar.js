@@ -1,12 +1,12 @@
 import React from 'react';
 import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar(props) {
     return (
         <section>
             <form role="form">
-                <input type="text" />
-                <button type="submit">Books Search</button>
+                <input type="text" value={props.query} onChange={props.inputChange} />
+                <button type="submit" onClick={props.formSubmit}>Books Search</button>
             </form>
         </section>
     );
