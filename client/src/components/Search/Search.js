@@ -7,6 +7,7 @@ import './Search.css';
 class Search extends Component {
     state = {
         books: [],
+        button: 'Save',
         query: ''
     };
 
@@ -33,17 +34,33 @@ class Search extends Component {
             .catch(err => console.log(err));
     };
 
+    // Save book to database
+    saveBook = book => {
+        API.saveBook(book)
+            .then(res => { console.log(`"${res.data.title}" saved.`) })
+            .catch(err => console.log(err));
+    };
+
     // Update query parameter on input change
     handleInputChange = event => {
         this.setState({ query: event.target.value });
     };
 
-    // Run searchBooks method and clear form 
+    // Run searchBooks method and clear form on form submit
     handleFormSubmit = event => {
         event.preventDefault();
 
         this.searchBooks(this.state.query);
         this.setState({ query: '' });
+    };
+
+    // Save book on button click
+    handleButtonClick = event => {
+        this.state.books.forEach(book => {
+            if (book.volumeId === event.target.value) {
+                this.saveBook(book);
+            }
+        });
     };
 
     render() {
@@ -54,7 +71,11 @@ class Search extends Component {
                     inputChange={this.handleInputChange}
                     query={this.state.query}
                 />
-                <SearchResults books={this.state.books} />
+                <SearchResults
+                    books={this.state.books}
+                    button={this.state.button}
+                    buttonClick={this.handleButtonClick}
+                />
             </>
         );
     }

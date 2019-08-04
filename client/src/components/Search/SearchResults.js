@@ -11,6 +11,8 @@ function SearchResults(props) {
                         key={book.volumeId}
                         bookId={book.volumeId}
                         authors={book.authors}
+                        button={props.button}
+                        buttonClick={props.buttonClick}
                         description={book.description}
                         image={book.image}
                         link={book.link}

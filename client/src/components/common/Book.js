@@ -8,6 +8,7 @@ function Book(props) {
             <h6>{props.authors}</h6>
             <img className="book-image" src={props.image} alt={props.title} />
             <p>{props.description}</p>
+            <button type="button" value={props.bookId} onClick={props.buttonClick}>{props.button}</button>
         </div>
     );
 }
