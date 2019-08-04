@@ -15,7 +15,7 @@ class Search extends Component {
         API.search(query)
             .then(res => {
                 const books = [];
-                console.log(res.data.items)
+
                 res.data.items.forEach(book => {
                     const bookInfo = {
                         authors: book.volumeInfo.authors,
