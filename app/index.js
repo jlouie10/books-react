@@ -9,4 +9,9 @@ const v1 = require('./v1');
 // Routes
 router.use('/api/v1', v1);
 
+// If no API routes are hit, send React app
+router.use(function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 module.exports = router;
